@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-  
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -20,18 +20,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd okto
-          npm install --force
+          yarn cache clean
+          yarn install 
 
-      - name: Build React app
+      - name: Build Next.js app
         run: |
-          cd okto
-          npm run build
+          yarn build
 
       - name: Deploy site to Walrus
         uses: zktx-io/walrus-sites-ga@v0.2.11
         with:
-          site-path: './okto/build'
+          site-path: './out'  # Adjust the path to the output directory (Next.js builds to "out" by default)
           network: 'testnet'
           epochs: 100
           object-id: '0x5d4a356b03d189f74ef45298c191855dac622af27129bb257849ce9c3d5f63f6'

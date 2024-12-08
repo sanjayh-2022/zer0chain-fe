@@ -3297,7 +3297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/snarkjs@npm:^0.7.6":
+"@types/snarkjs@npm:^0, @types/snarkjs@npm:^0.7.6":
   version: 0.7.8
   resolution: "@types/snarkjs@npm:0.7.8"
   checksum: 9ac4b5c48af2680321ec204fd31c4a5ce829807ff808a429182d2be519e98d577fd4d5a86f80b8c8503628a44198f96dce6d10fbe99b745335ad7abc1d34d4f4
@@ -13092,9 +13092,11 @@ __metadata:
   dependencies:
     "@anon-aadhaar/react": ^2.4.2
     "@heroicons/react": ^2.2.0
+    "@types/snarkjs": ^0
     husky: ~8.0.3
     lint-staged: ~13.2.2
     next: ^15.0.4
+    snarkjs: latest
   languageName: unknown
   linkType: soft
 
@@ -13447,7 +13449,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snarkjs@npm:^0.7.3":
+"snarkjs@npm:^0.7.3, snarkjs@npm:latest":
   version: 0.7.5
   resolution: "snarkjs@npm:0.7.5"
   dependencies:
