@@ -32,7 +32,7 @@ export default function AnonAadhaarApp({ Component, pageProps }: AppProps) {
       console.log(proofMessage)
       try {
         const response = await fetch(
-          "https://72a4-14-195-142-82.ngrok-free.app/api/aadhaar/verify",
+          "https://dbbc-14-195-142-82.ngrok-free.app/api/aadhaar/verify",
           {
             method: "POST",
             headers: {
