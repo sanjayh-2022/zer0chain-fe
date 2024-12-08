@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
@@ -7,6 +8,14 @@ import { usePathname } from "next/navigation";
 import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
+import { Work_Sans } from "next/font/google";
+
+const pirata_One = Work_Sans({
+  weight: ['400'],
+  subsets: ['latin'],
+});
+
+
 
 type HeaderMenuLink = {
   label: string;
@@ -65,8 +74,9 @@ export const Header = () => {
   );
 
   return (
+    <div className={pirata_One.className}>
     <div className="sticky lg:static top-0 navbar bg-base-100 min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
-      <div className="navbar-start w-auto lg:w-1/2">
+      <div className="flex ml-12 w-auto lg:w-1/2">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label
             tabIndex={0}
@@ -89,23 +99,25 @@ export const Header = () => {
             </ul>
           )}
         </div>
-        <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
-          <div className="flex relative w-10 h-10">
+        <div className="flex relative w-10 h-10">
+          <Link href="/" passHref>
             <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-bold leading-tight">Scaffold-ETH</span>
-            <span className="text-xs">Ethereum dev stack</span>
+          </Link>
+        </div>
+        <Link href="/" passHref className="hidden lg:flex items-center gap-2 -ml-12 mr-6 shrink-0">
+          <div className="flex flex-col relative left-20" style={{ left: '35rem' }}>
+            <span className="font-bold leading-tight text-xl">ZEROCHAIN WALLET</span>
           </div>
         </Link>
-        <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
-          <HeaderMenuLinks />
-        </ul>
+        
       </div>
       <div className="navbar-end flex-grow mr-4">
-        <RainbowKitCustomConnectButton />
-        <FaucetButton />
+        <Link href="/anonaadhar" passHref>
+        <button className="btn btn-active btn-primary">On-board</button>
+        </Link>
+        
       </div>
+    </div>
     </div>
   );
 };
