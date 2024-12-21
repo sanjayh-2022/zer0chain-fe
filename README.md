@@ -1,80 +1,121 @@
-# 🏗 Scaffold-ETH 2
+# Zer0 Chain Wallet
 
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
+## Introduction
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+**Zer0chain Wallet** is an account-abstracted and chain-abstracted wallet designed to simplify Web3 onboarding and transaction management. With AI-powered workflows and a WhatsApp-based interface, it offers an intuitive, text or voice-driven way to manage your wallet, making crypto transactions as easy as sending a message.
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+The wallet uses **Anon Aadhaar**, a privacy-focused ZK protocol for user verification before wallet creation, ensuring secure and anonymous identity validation. For high-cost transactions, Zer0chain Wallet leverages LIT Protocol, which adds an extra layer of security, safeguarding transactions and reducing the risk of fraud.
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+**Demo Video Link**: [youtu.be/QyDWfzndVOE?si=RAebxxpnQkc_QhFx](https://youtu.be/QyDWfzndVOE?si=RAebxxpnQkc_QhFx)
 
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
+## Key Features  
 
-## Requirements
+- 🔑 **Account Abstraction**: No need to worry about private keys or seed phrases; enjoy a seamless wallet experience.  
+- 🌐 **Chain Abstraction**: Effortlessly interact with multiple networks in one place.  
+- 🧠 **Crypto x AI**: : Leverage cutting-edge Gen AI agent workflows to automate transactions, integrated seamlessly with a WhatsApp bot.
+- 💬 **WhatsApp Bot**: Interact with your wallet directly via WhatsApp, making transactions as simple as typing a message or recording your Voice.  
+- 🔒 **Anon Aadhaar**: Securely verify your identity using a zk-protocol-based approach to Aadhaar verification, ensuring privacy and security.  
 
-Before you begin, you need to install the following tools:
 
-- [Node (>= v18.18)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+## Getting Started  
 
-## Quickstart
+### Prerequisites  
 
-To get started with Scaffold-ETH 2, follow the steps below:
+Ensure you have the following installed:  
+- **Node.js** (v16 or later)  
+- **npm** & **yarn**
+- **Python** (3.9 or later)  
 
-1. Install dependencies if it was skipped in CLI:
+### Installation  
 
+Clone the repository:
+
+```bash
+git clone --recurse-submodules https://github.com/sanjayh-2022/zer0chain-fe.git
 ```
-cd my-dapp-example
+
+Navigate to the project directory:
+
+```bash
+cd zer0chain-fe
+```
+
+#### Setup the Frontend
+Install dependencies:
+
+```bash
 yarn install
 ```
 
-2. Run a local network in the first terminal:
+#### Setup the AI Agent
 
-```
-yarn chain
-```
+Navigate to the directory
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `packages/hardhat/hardhat.config.ts`.
-
-3. On a second terminal, deploy the test contract:
-
-```
-yarn deploy
+```bash
+cd zer0_chain-server/src/agent
 ```
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+Create a virtual environment:
 
-4. On a third terminal, start your NextJS app:
+```bash
+python3 -m venv venv
+```
+
+Activate the virtual environment:
+
+- On **Windows**:
+
+  ```bash
+  .\venv\Scripts\activate
+  ```
+
+- On **MacOS/Linux**:
+
+  ```bash
+  source venv/bin/activate
+  ```
+
+
+#### Setup the server
 
 ```
+cd zer0_chain-server
+npm i
+```
+
+#### Environment Setup
+
+Create a .env file in the root directory and configure the following variables:
+
+```
+TWILIO_ACCOUNT_SID=<your_twilio_account_sid>
+TWILIO_AUTH_TOKEN=<your_twilio_auth_token>
+GROQ_API_KEY=<your_groq_api_key>
+HF_API_KEY=<your_hugging_face_api_key>
+GOOGLE_API_KEY2=<your_google_gemini_api_key>
+```
+
+#### Run the Application
+
+Start the development server:
+
+```bash
+cd zer0_chain-server
+npm start
+```
+
+Start the Python AI Agent Workflow:
+
+```bash
+python3 src/agent/agent.py
+```
+
+Start the development server for UI (in the root directory):
+
+```bash
 yarn start
 ```
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+## Contributing
 
-Run smart contract test with `yarn hardhat:test`
-
-- Edit your smart contracts in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
-
-
-## Documentation
-
-Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out our [website](https://scaffoldeth.io).
-
-## Contributing to Scaffold-ETH 2
-
-We welcome contributions to Scaffold-ETH 2!
-
-Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
+Contributions are welcome! If you find any bugs or have suggestions for improvements, please open an issue or clone the repository and submit a pull request on GitHub.
