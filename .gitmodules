@@ -1,0 +1,3 @@
+[submodule "zer0_chain-server"]
+	path = zer0_chain-server
+	url = https://github.com/Aswinr24/Zer0Chain-Wallet.git
